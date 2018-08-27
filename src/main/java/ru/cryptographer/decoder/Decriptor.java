@@ -6,8 +6,11 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.springframework.stereotype.Component;
+
 import ru.cryptographer.interfaces.InterfaceDecryptor;
 
+@Component
 public class Decriptor implements InterfaceDecryptor {
 
 	@Override
