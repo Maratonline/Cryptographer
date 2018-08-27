@@ -1,5 +1,10 @@
 package ru.cryptographer.main;
 
+import ru.cryptographer.decoder.Encryptor;
+import ru.cryptographer.implement.data.input.FileReader;
+import ru.cryptographer.interfaces.InterfaceDataInput;
+import ru.cryptographer.interfaces.InterfaceEncryptor;
+
 public class Main {
 	private String key = "aDeFaeAA3054864q";
 	private String initVector = "RandomInitVector";
@@ -28,4 +33,17 @@ public class Main {
 		}
 	}
 
+	InterfaceDataInput red = new FileReader();
+	InterfaceEncryptor en = new Encryptor();
+	String filePath = "C:\\Users\\User\\eclipse-workspace\\testDecoder\\src\\text.txt";
+
+	public void run () {
+		
+		
+		String value = red.readFile(filePath);
+		
+//		en.encryption ( key, initVector, value);
+		System.out.println(en.encryption ( key, initVector, value));
+	}
+	
 }
