@@ -12,10 +12,11 @@ import ru.cryptographer.interfaces.InterfaceDataOutput;
 @Component
 public class WriteFile implements InterfaceDataOutput {
 
+	private String filePath = "C:\\Users\\User\\eclipse-workspace\\Cryptographer\\decrypted";
+	
 	@Override
-	public void createFile(String filePath, String fileName) {
+	public void createFile( String fileName, String value) {
 		File file = new File(filePath, fileName);
-
 		if (file.exists()) {
 			System.out.println("File with this name is exists");
 		} else {
@@ -25,7 +26,17 @@ public class WriteFile implements InterfaceDataOutput {
 				e.printStackTrace();
 			}
 		}
+		try (FileOutputStream fos = new FileOutputStream(file.getAbsolutePath())) {
+
+			byte[] buffer = value.getBytes();
+
+			fos.write(buffer, 0, buffer.length);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
+		
 
 	// "C:\\Users\\User\\eclipse-workspace\\Cryptographer\\decrypted" way for
 	// creating giles
@@ -33,7 +44,7 @@ public class WriteFile implements InterfaceDataOutput {
 	// System.out.println("Date of creation: " + date + "\n" + "dfsdfssdf");
 
 	@Override
-	public void writeFile(String filePath, String text) {
+	public void writeFile( String text) {
 
 		try (FileOutputStream fos = new FileOutputStream(filePath)) {
 
