@@ -9,7 +9,7 @@ import ru.cryptographer.interfaces.Graphics;
 
 public class MainWindow extends JFrame implements Graphics{
 
-	JPanelAPP jPanelAPP = new JPanelAPP();
+	JPanelApp jPanelAPP = new JPanelApp();
 	
 	@Override
 	public void createMainWindow() {
